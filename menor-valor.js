@@ -1,17 +1,20 @@
 //
 const livros = require('./livros-listas');
 
-let maisBarato = 0;
+function menorValor(arrProdutos, posicaoInicial) {
+    let maisBarato = posicaoInicial;
 
-for (let atual = 0; atual < livros.length; atual++){
+for (let atual = posicaoInicial; atual < arrProdutos.length; atual++){
 
-    if (livros[atual].preco <  livros[maisBarato].preco){
+    if (arrProdutos[atual].preco <  livros[maisBarato].preco){
 
         maisBarato = atual;
 
     }
 
 }
+return maisBarato;
+}
+module.exports = menorValor;
 
-console.log(`O livro maisBarato: ${livros[maisBarato].preco}
-    e o titulo é ${livros[maisBarato].titulo}`); 
+
